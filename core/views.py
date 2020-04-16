@@ -20,17 +20,10 @@ from core.messeges_utils import message_error_generic, message_sucess_generic, m
 from core.models import Link
 
 
-class TestaEmpresaMixin(SingleObjectMixin, AccessMixin):
-    def dispatch(self, request, *args, **kwargs):
-        try:
-            if self.get_object().empresa == request.user.user_profile.empresa:
-                return super().dispatch(request, *args, **kwargs)
-            else:
-                return HttpResponse(status=500)
-        except Exception as e:
-            print('exceção no TESTE EMPRESA MIXIN', e)
-            return super().dispatch(request, *args, **kwargs)
 
+@login_required()
+def testa_user_logado(request):
+    return LoginView.redirect_after_login(self=LoginView, user=request.user)
 
 class LoginView(TemplateView):
     template_name = 'core/paginas/login.html'
