@@ -10,3 +10,13 @@ Desenvolva uma API que contemple as atividades citadas abaixo.
 - View para contabilizar o número de cliques e realizar o redirect;
 - Dashboard mostrando o número de cliques por url;
 - Django admin para criar, editar e deletar usuários e links.
+
+
+### ADMIN USER
+user = admin
+password = admin123
+
+#### Configuraçes de acesso ao banco mysql no productions.py 
+##### Arquivos da pasta conf usados para deploy no meu servidor
+
+###### Link de acesso para meu servidor https://bit.ly/2xoIwby
