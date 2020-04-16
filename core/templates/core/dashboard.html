@@ -1,0 +1,56 @@
+{% extends 'core/base/layout_base.html' %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block corpo %}
+    <div class="container-fluid">
+        <div class="row">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <h6>Seja Bem Vindo <span class="text-primary">{{ request.user.username }}</span></h6>
+                </div>
+
+                <h2>Links Cadastrados</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Descrição</th>
+                            <th>Url Encurtado</th>
+                            <th>Url Original</th>
+                            <th class="text-center">Contador</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for link in links_cadastrados %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ link.descricao }}</td>
+                                <td><a href="{% url "core:redirect_link" link.url_encurtado %}">{{ link.get_novo_link }}</a></td>
+                                <td>{{ link.url_original }}</td>
+                                <td class="text-center" width="10%">{{ link.contador }}</td>
+                                <td class="text-center" width="15%">
+                                    <a href="{% url 'core:links_update_view' link.pk %}" title="Editar"
+                                       class="btn btn-info"> Editar
+                                    </a>
+                                    <a href="{% url 'core:links_delete_view' link.pk %}" title="Deletar"
+                                       class="btn btn-danger"> Deletar
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

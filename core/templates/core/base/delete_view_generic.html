@@ -1,0 +1,35 @@
+{% extends 'core/base/layout_base.html' %}
+
+{% block side_bar %}
+{% endblock %}
+
+{% block corpo %}
+    <div class="container-fluid">
+        <div class="row">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2 text-danger">Deseja Realmente Deletar Este Registro?</h1>
+{#                    <h6>Seja Bem Vindo <span class="text-primary">{{ request.user.username }}</span></h6>#}
+                </div>
+
+                <div class="box-body">
+                    <header class="header">
+                        <div class="header-info">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <ul>
+                                    <input type="hidden" value="{{ object.id }}"/>
+                                    <li><a href="{{ object }}">{{ object }}</a></li>
+                                </ul>
+                                <input type='button' class="btn btn-dark" value='Cancelar'
+                                       onclick='history.go(-1)'/>
+                                <input type="submit" class="btn btn-danger" value="Deletar" name="confirm_delete"/>
+                            </form>
+                        </div>
+                    </header>
+                </div>
+        </div>
+    </div>
+
+
+{% endblock %}

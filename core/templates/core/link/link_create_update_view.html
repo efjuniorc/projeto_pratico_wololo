@@ -1,0 +1,43 @@
+{% extends 'core/base/layout_base.html' %}
+
+
+
+{% block corpo %}
+    <div class="container-fluid">
+        <div class="row">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2 text-info">{% if object.pk %}Editar{% else %}Novo{% endif %}Link</h1>
+                    {#                    <h6>Seja Bem Vindo <span class="text-primary">{{ request.user.username }}</span></h6>#}
+                </div>
+
+                <div class="box-body">
+                    <header class="header">
+                        <div class="header-info">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        {{ form.descricao.label_tag }}
+                                        {{ form.descricao }}
+                                        {{ form.descricao.errors }}
+                                    </div>
+                                    <div class="col-md-8">
+                                        {{ form.url_original.label_tag }}
+                                        {{ form.url_original }}
+                                        {{ form.url_original.errors }}
+                                    </div>
+                                </div>
+                                <div class="row d-flex  flex-wrap pt-3 justify-content-end mr-3">
+                                    <input type='button' class="btn btn-dark mr-3" value='Voltar'
+                                           onclick='history.go(-1)'/>
+                                    <input type="submit" class="btn btn-info" value="Salvar" name="confirm_delete"/>
+                                </div>
+                            </form>
+                        </div>
+                    </header>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
