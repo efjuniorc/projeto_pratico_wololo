@@ -118,10 +118,10 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 PAGINATE_DEFAULT = 12
 
-try:
-    from .productions import *
-except:
-    pass
+# try:
+#     from .productions import *
+# except:
+#     pass
 
 try:
     from .local import *
