@@ -79,10 +79,13 @@ class Dashboard(LoginRequiredMixin, TemplateView):
 
 class RedirectLink(RedirectView):
     def get(self, request, *args, **kwargs):
-        link = Link.objects.get(url_encurtado=kwargs['url'])
-        link.contador += 1
-        link.save()
-        return redirect(link.url_original)
+        try:
+            link = Link.objects.get(url_encurtado=kwargs['url'])
+            link.contador += 1
+            link.save()
+            return redirect(link.url_original)
+        except:
+            return HttpResponse(status=404)
 
 
 class LinkCreateView(CreateView):
