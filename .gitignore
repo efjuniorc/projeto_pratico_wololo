@@ -3,3 +3,4 @@
 #/sistema/local.py
 /media/
 /venv/
+sqlite3.db
