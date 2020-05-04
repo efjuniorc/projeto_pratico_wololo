@@ -17,6 +17,3 @@ user = admin
 password = admin123
 
 #### Configuraçes de acesso ao banco mysql no productions.py 
-##### Arquivos da pasta conf usados para deploy no meu servidor
-
-###### Link de acesso para meu servidor https://bit.ly/2xoIwby
