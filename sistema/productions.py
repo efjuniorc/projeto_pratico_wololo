@@ -2,7 +2,6 @@
 #
 # DEBUG = False
 #
-# ALLOWED_HOSTS += ['157.245.212.104']
 #
 # DATABASES = {
 #     'default': {
